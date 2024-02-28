@@ -1,5 +1,13 @@
 // TODO: write a function 'getComputerChoice' that will randomly return either 'Rock', 'Paper', or 'Scissors'
 
+const getComputerChoice = () => {
+  const variants = ['Rock', 'Paper', 'Scissors'];
+  let randomVariant = Math.floor(Math.random() * variants.length);
+  return variants[randomVariant];
+};
+
+console.log(getComputerChoice());
+
 /* 
 TODO: write a function that plays a single round called 'playRound'
 TODO: It should take 2 parameters: playerSection and computerSection 
