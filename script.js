@@ -1,33 +1,22 @@
-// TODO: write a function 'getComputerChoice' that will randomly return either 'Rock', 'Paper', or 'Scissors'
-
-let playerScore = 0;
-let computerScore = 0;
 let totalRounds = 5;
+let computerScore = 0;
+let playerScore = 0;
 let playerSelection;
-let computerSection;
+let computerSelection;
 
-const getComputerChoice = () => {
+function getComputerChoice() {
   const variants = ['rock', 'paper', 'scissors'];
   let randomVariant = Math.floor(Math.random() * variants.length);
   return variants[randomVariant];
-};
+}
 
-const getPlayerChoice = () => {
-  prompt('Rock, Paper or Scissors?').toLowerCase();
-};
+function getPlayerChoice() {
+  return prompt('Rock, Paper or Scissors?').toLowerCase();
+}
 
-/* 
-TODO: write a function that plays a single round called 'playRound'
-TODO: It should take 2 parameters: playerSection and computerSection 
-TODO: It then should return a string that declares the winner or tie of the round like so: "You Lose! Paper beats Rock"
-- make sure that function's playerSelection parameter case-insensitive
-*/
-
-const playRound = (playerSelection, computerSelection) => {
+function playRound(playerSelection, computerSelection) {
   playerSelection = getPlayerChoice();
   computerSelection = getComputerChoice();
-  console.log(playerSelection);
-  console.log(computerSelection);
 
   if (
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -35,16 +24,22 @@ const playRound = (playerSelection, computerSelection) => {
     (playerSelection === 'paper' && computerSelection === 'rock')
   ) {
     playerScore++;
-    return console.log(`You won!`);
+    return `You won!`;
   } else if (computerSelection === playerSelection) {
-    return console.log(`It's a tie`);
+    return `It's a tie`;
   }
 
   computerScore++;
-  return console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-};
+  return `You lose! ${computerSelection} beats ${playerSelection}`;
+}
 
-playRound();
+function playGame() {
+  for (let i = 0; i < totalRounds; i++) {
+    console.log(playRound());
+  }
+  console.log(computerScore, playerScore);
+}
+playGame();
 
 /* 
 TODO: write another function called 'playGame' and use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end
