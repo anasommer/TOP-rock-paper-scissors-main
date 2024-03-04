@@ -35,17 +35,18 @@ function playRound(playerSelection, computerSelection) {
 
 function playGame() {
   for (let i = 0; i < totalRounds; i++) {
-    console.log(playRound());
+    console.log(`Round ${i + 1} : ${playRound()}`);
   }
-  console.log(computerScore, playerScore);
+
+  if (computerScore > playerScore) {
+    console.log(
+      `Computer wins game with score: ${computerScore} : ${playerScore}`
+    );
+  } else if (playerScore < computerScore) {
+    console.log(`You win with score: ${playerScore} : ${computerScore}`);
+  } else {
+    console.log(`It's a draw: ${computerScore} : ${playerScore}`);
+  }
 }
+
 playGame();
-
-/* 
-TODO: write another function called 'playGame' and use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end
-
-- call playRound function 5 times in a row
-- use console.log() to display the results of each round and the winner at the end
-- use prompt() to get input from the user
-
-*/
