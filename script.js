@@ -1,8 +1,15 @@
-let totalRounds = 5;
+// let totalRounds = 5;
 let computerScore = 0;
 let playerScore = 0;
 let playerSelection;
 let computerSelection;
+const btns = document.querySelectorAll('button');
+
+btns.forEach((btn) => {
+  btn.addEventListener('click', function (e) {
+    console.log(e.target.id);
+  });
+});
 
 function getComputerChoice() {
   const variants = ['rock', 'paper', 'scissors'];
@@ -49,4 +56,4 @@ function playGame() {
   }
 }
 
-playGame();
+// playGame();
